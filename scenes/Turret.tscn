@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://textures/turret.png" type="Texture" id=1]
+[ext_resource path="res://textures/turrent_detection_area.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Turret.cs" type="Script" id=3]
+[ext_resource path="res://textures/turret gun.png" type="Texture" id=4]
+[ext_resource path="res://audio/sfx/smack.wav" type="AudioStream" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 12, 14 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 12, 0, 12, 14 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 12, 14 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 36, 0, 12, 14 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+audio_stream = ExtResource( 5 )
+random_pitch = 1.4
+
+[node name="Turret" type="Area2D"]
+input_pickable = false
+monitorable = false
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+frame = 3
+playing = true
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.768627, 0.901961, 1, 0.317647 )
+position = Vector2( 0, 25 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -4, 4, -22, 54, -13, 56, 13, 56, 22, 54, 4, 4 )
+
+[node name="Gun" type="Sprite" parent="."]
+position = Vector2( 0, 2 )
+texture = ExtResource( 4 )
+offset = Vector2( 3.5, 0 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="ShootPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 6 )
+volume_db = -9.321
+pitch_scale = 2.43
+bus = "SFX"

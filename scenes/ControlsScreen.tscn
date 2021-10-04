@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://textures/background.png" type="Texture" id=1]
+[ext_resource path="res://font/dpcomic.tres" type="DynamicFont" id=2]
+[ext_resource path="res://textures/button_normal.png" type="Texture" id=3]
+[ext_resource path="res://textures/button_press.png" type="Texture" id=4]
+[ext_resource path="res://textures/button_hover.png" type="Texture" id=5]
+[ext_resource path="res://scripts/InfoScreen.cs" type="Script" id=6]
+[ext_resource path="res://textures/y_button.png" type="Texture" id=7]
+[ext_resource path="res://textures/triangle_button.png" type="Texture" id=8]
+[ext_resource path="res://font/dpcomic.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scenes/TwitterLink.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0.156863, 0.207843, 0.25098, 1 )
+font_data = ExtResource( 9 )
+
+[node name="ControlsScreen" type="Node2D"]
+script = ExtResource( 6 )
+returnButton = NodePath("ReturnButton")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 480.0
+margin_bottom = 270.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 113.0
+margin_top = 67.0
+margin_right = 364.0
+margin_bottom = 208.0
+color = Color( 0.105882, 0.121569, 0.129412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnButton" type="TextureButton" parent="."]
+margin_left = 145.0
+margin_top = 225.0
+margin_right = 335.0
+margin_bottom = 261.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ReturnButton"]
+margin_left = 79.0
+margin_top = 10.0
+margin_right = 119.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 2 )
+text = "Return"
+
+[node name="Subtitle" type="Label" parent="."]
+margin_left = 119.0
+margin_top = 72.0
+margin_right = 410.0
+margin_bottom = 180.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.827451, 0.737255, 0.737255, 1 )
+custom_constants/line_spacing = 7
+text = "A / Left - Roll Left
+D / Right - Roll Right
+Hold R /     /      - Restart
+Space /     /      - Restart when dead
+Escape / L2 - Return to the main menu
+F11 / Alt+Enter - Toggle fullscreen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 188.0
+margin_top = 25.0
+margin_right = 236.0
+margin_bottom = 41.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.827451, 0.737255, 0.737255, 1 )
+text = "Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Triangle1" type="TextureRect" parent="."]
+margin_left = 206.0
+margin_top = 114.0
+margin_right = 226.0
+margin_bottom = 134.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Triangle2" type="TextureRect" parent="."]
+margin_left = 205.0
+margin_top = 137.0
+margin_right = 225.0
+margin_bottom = 157.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Y1" type="TextureRect" parent="."]
+margin_left = 172.0
+margin_top = 114.0
+margin_right = 192.0
+margin_bottom = 134.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Y2" type="TextureRect" parent="."]
+margin_left = 171.0
+margin_top = 136.0
+margin_right = 191.0
+margin_bottom = 156.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TwitterLink" parent="." instance=ExtResource( 10 )]

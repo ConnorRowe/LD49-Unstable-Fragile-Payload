@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/GlobalMusic.cs" type="Script" id=1]
+[ext_resource path="res://audio/track.ogg" type="AudioStream" id=2]
+[ext_resource path="res://audio/gripz.ogg" type="AudioStream" id=3]
+
+[node name="GlobalMusic" type="Node"]
+script = ExtResource( 1 )
+mainTrack = ExtResource( 2 )
+endTrack = ExtResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Music"

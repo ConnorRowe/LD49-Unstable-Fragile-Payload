@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/nin50.wav-c6197f2a401c7db6df9a60a5d7498383.sample"
+
+[deps]
+
+source_file="res://audio/sfx/nin50.wav"
+dest_files=[ "res://.import/nin50.wav-c6197f2a401c7db6df9a60a5d7498383.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
